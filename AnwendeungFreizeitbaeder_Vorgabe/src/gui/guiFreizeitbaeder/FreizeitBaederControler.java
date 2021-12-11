@@ -1,7 +1,6 @@
 package gui.guiFreizeitbaeder;
 
 import java.io.IOException;
-
 import business.FreizeitBaederModel;
 import javafx.stage.Stage;
 
@@ -11,7 +10,7 @@ public class FreizeitBaederControler {
 	private FreizeitBaederView freizeitBaederView;
 
 	public FreizeitBaederControler(Stage primaryStage) {
-		this.freizeitBaederModel = new FreizeitBaederModel();
+		this.freizeitBaederModel = freizeitBaederModel.getInstance();
 		this.freizeitBaederView = new FreizeitBaederView(this, freizeitBaederModel, primaryStage);
 	}
 

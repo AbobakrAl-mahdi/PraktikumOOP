@@ -9,6 +9,22 @@ import writers.WriterProduct;
 public class FreizeitBaederModel {
 
 	private Freizeitbad freizeitbad;
+	private	static FreizeitBaederModel instance;
+	
+	private FreizeitBaederModel() {}
+
+	
+
+	public static FreizeitBaederModel getInstance() {
+		// TODO Auto-generated method stub
+		if(instance == null) {
+			instance = new FreizeitBaederModel();
+		}
+		return instance;
+		
+	}
+
+
 
 	public Freizeitbad getFreizeitbad() {
 		return freizeitbad;

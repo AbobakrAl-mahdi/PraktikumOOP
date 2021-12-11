@@ -1,7 +1,6 @@
 package gui.guiSportstaetten;
    
 import business.FreizeitBaederModel;
-import gui.guiFreizeitbaeder.FreizeitBaederControler;
 import javafx.event.*;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -15,6 +14,7 @@ public class SporttaettenView {
 	
 	// Hier ergaenzen
 	FreizeitBaederModel freizeitBaederModel;
+	SportstaettenControl sportstaettenControl;
 
 	
     	//---Anfang Attribute der grafischen Oberflaeche---
@@ -25,14 +25,19 @@ public class SporttaettenView {
     	private TextArea txtAnzeigeFreizeitbaeder  = new TextArea();
     	private Button btnAnzeigeFreizeitbaeder = new Button("Anzeige");
     	//-------Ende Attribute der grafischen Oberflaeche-------
+
+
+		
     
-    	public SporttaettenView(FreizeitBaederControler freizeitBaederControler, FreizeitBaederModel freizeitBaederModel,
-    			Stage primaryStage){
+    	public SporttaettenView(SportstaettenControl sportStaettenControl, FreizeitBaederModel freizeitBaederModel,
+    			Stage sprtsttaetensStage){
     		Scene scene = new Scene(this.pane, 560, 340);
-    		primaryStage.setScene(scene);
-    		primaryStage.setTitle("Anzeige von Sportstätten");
-    		primaryStage.show();
+    		sprtsttaetensStage.setScene(scene);
+    		sprtsttaetensStage.setTitle("Anzeige von Sportstätten");
+    		sprtsttaetensStage.show();
     		// Hier ergaenzen
+    		this.sportstaettenControl = sportStaettenControl;
+    		this.freizeitBaederModel = freizeitBaederModel;
 
 
 		this.initKomponenten();
@@ -81,7 +86,7 @@ public class SporttaettenView {
     		}
     }	
    
-    private void zeigeInformationsfensterAn(String meldung){
+    void zeigeInformationsfensterAn(String meldung){
     	  	new MeldungsfensterAnzeiger(AlertType.INFORMATION,
                	"Information", meldung).zeigeMeldungsfensterAn();
     }	
