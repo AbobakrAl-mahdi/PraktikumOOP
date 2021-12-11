@@ -1,4 +1,4 @@
-package gui;
+package gui.guiFreizeitbaeder;
 
 import java.io.IOException;
 

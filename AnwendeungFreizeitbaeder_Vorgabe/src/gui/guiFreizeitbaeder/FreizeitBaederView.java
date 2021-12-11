@@ -1,4 +1,4 @@
-package gui;
+package gui.guiFreizeitbaeder;
 
 import business.FreizeitBaederModel;
 import business.Freizeitbad;
