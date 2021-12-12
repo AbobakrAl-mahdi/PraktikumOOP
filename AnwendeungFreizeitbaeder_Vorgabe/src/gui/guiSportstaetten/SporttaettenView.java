@@ -74,7 +74,7 @@ public class SporttaettenView {
    	    });
     }
    
-    private void zeigeFreizeitbaederAn(){
+    void zeigeFreizeitbaederAn(){
     		if(freizeitBaederModel.getFreizeitbad() != null){
     			txtAnzeigeFreizeitbaeder.setText(
     				freizeitBaederModel.getFreizeitbad()
@@ -84,7 +84,7 @@ public class SporttaettenView {
     			zeigeInformationsfensterAn(
  				"Bisher wurde kein Freizeitbad aufgenommen!");
     		}
-    }	
+    }
    
     void zeigeInformationsfensterAn(String meldung){
     	  	new MeldungsfensterAnzeiger(AlertType.INFORMATION,

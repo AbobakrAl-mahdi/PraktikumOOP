@@ -154,13 +154,14 @@ public class FreizeitBaederView {
 			this.freizeitbad = new Freizeitbad(txtName.getText(), txtGeoeffnetVon.getText(), txtGeoeffnetBis.getText(),
 					txtBeckenlaenge.getText(), txtWassTemperatur.getText());
 			freizeitBaederModel.setFreizeitbad(freizeitbad);
-			zeigeInformationsfensterAn("Das Freizeitbad wurde aufgenommen!");
+			//zeigeInformationsfensterAn("Das Freizeitbad wurde aufgenommen!");
+			freizeitBaederModel.notifyObserver();
 		} catch (PlausiException exc) {
 			zeigeFehlermeldungsfensterAn(exc.getPlausiTyp() + "er ", exc.getMessage());
 		}
 	}
 
-	private void zeigeFreizeitbaederAn() {
+	void zeigeFreizeitbaederAn() {
 		if (this.freizeitbad != null) {
 			txtAnzeige.setText(this.freizeitbad.gibFreizeitbadZurueck(' '));
 		} else {
