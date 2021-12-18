@@ -1,0 +1,26 @@
+Daten des Freizeitbades
+Name des Freizeitbads: asasas
+Öffnungszeit des Freizeitbads: 15.0 - 18.0
+Beckenlänge des Freizeitbads: 55
+Wassertemperatur des Freizeitbads: 10
+
+Name des Freizeitbads: as
+Öffnungszeit des Freizeitbads: 15.0 - 18.0
+Beckenlänge des Freizeitbads: 55
+Wassertemperatur des Freizeitbads: 10
+
+Name des Freizeitbads: asfasdfsadfdsaf
+Öffnungszeit des Freizeitbads: 15.0 - 18.0
+Beckenlänge des Freizeitbads: 55
+Wassertemperatur des Freizeitbads: 10
+
+Name des Freizeitbads: asfasdfsadfdsaf
+Öffnungszeit des Freizeitbads: 15.0 - 18.0
+Beckenlänge des Freizeitbads: 55
+Wassertemperatur des Freizeitbads: 10
+
+Name des Freizeitbads: asfasdfsadfdsaf
+Öffnungszeit des Freizeitbads: 15.0 - 18.0
+Beckenlänge des Freizeitbads: 55
+Wassertemperatur des Freizeitbads: 10
+
