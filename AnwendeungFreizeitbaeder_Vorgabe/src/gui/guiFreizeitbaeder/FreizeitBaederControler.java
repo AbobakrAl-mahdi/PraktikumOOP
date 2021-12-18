@@ -20,7 +20,7 @@ public class FreizeitBaederControler implements Observer {
 	public void schreibeFreizeitbaederInDatei(String typ) {
 		try {
 			if ("csv".equals(typ)) {
-				freizeitBaederModel.SchreibeFreizeitBaederInVsvDatei();
+				freizeitBaederModel.SchreibeFreizeitBaederInCsvDatei();
 				freizeitBaederView.zeigeInformationsfensterAn("Wurde in csv Datei gespeichert");
 
 			} else {

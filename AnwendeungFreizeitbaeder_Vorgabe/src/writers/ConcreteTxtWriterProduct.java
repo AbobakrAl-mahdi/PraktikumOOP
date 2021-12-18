@@ -3,6 +3,8 @@ package writers;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+
 import business.Freizeitbad;
 
 public class ConcreteTxtWriterProduct extends WriterProduct {
@@ -13,7 +15,7 @@ public class ConcreteTxtWriterProduct extends WriterProduct {
 	public ConcreteTxtWriterProduct() {
 		try {
 			this.aus= new BufferedWriter(new FileWriter("Freizeitbad.txt",true));
-			aus.write("Daten des Freizeitbades\n");
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -21,11 +23,15 @@ public class ConcreteTxtWriterProduct extends WriterProduct {
 
 	@Override
 	public void fuegeInDateiHinzu(Object object) throws IOException {
-		Freizeitbad fr = (Freizeitbad)object;
-		aus.write("Name des Freizeitbads: "+fr.getName()
-				+"\n÷ffnungszeit des Freizeitbads: "+fr.getGeoeffnetVon()+" - "+fr.getGeoeffnetBis()
-				+"\nBeckenl‰nge des Freizeitbads: "+fr.getBeckenlaenge()
-				+"\nWassertemperatur des Freizeitbads: "+fr.getTemperatur()+"\n\n");
+		
+		for (Freizeitbad fzb : (ArrayList<Freizeitbad>) object) {
+			aus.write("Daten des Freizeitbades\n");
+			aus.write("Name des Freizeitbads: "+fzb.getName()
+			+"\n÷ffnungszeit des Freizeitbads: "+fzb.getGeoeffnetVon()+" - "+fzb.getGeoeffnetBis()
+			+"\nBeckenl‰nge des Freizeitbads: "+fzb.getBeckenlaenge()
+			+"\nWassertemperatur des Freizeitbads: "+fzb.getTemperatur()+"\n\n");
+		}
+		
 		
 	}
 

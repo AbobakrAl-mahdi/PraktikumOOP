@@ -12,7 +12,7 @@ import writers.WriterProduct;
 // Concrete Observable
 public class FreizeitBaederModel implements Observable{
 
-	private Freizeitbad freizeitbad;
+	private ArrayList<Freizeitbad> freizeitbad = new ArrayList<Freizeitbad>();
 	private	static FreizeitBaederModel instance;
 	
 	private List<Observer> observers = new ArrayList();
@@ -32,15 +32,15 @@ public class FreizeitBaederModel implements Observable{
 
 
 
-	public Freizeitbad getFreizeitbad() {
+	public ArrayList<Freizeitbad> getFreizeitbad() {
 		return freizeitbad;
 	}
 
 	public void setFreizeitbad(Freizeitbad freizeitbad) {
-		this.freizeitbad = freizeitbad;
+		this.freizeitbad.add(freizeitbad);
 	}
 
-	public void SchreibeFreizeitBaederInVsvDatei() throws IOException {
+	public void SchreibeFreizeitBaederInCsvDatei() throws IOException {
 		WriterCreator writerCreator = new ConcreteCsvWriterCreator();
 		WriterProduct writer = writerCreator.factoryMethod();
 		writer.fuegeInDateiHinzu(freizeitbad);

@@ -3,6 +3,7 @@ package writers;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import business.Freizeitbad;
 
@@ -19,8 +20,11 @@ public class ConcreteCsvWriterProduct extends WriterProduct {
 	}
 	@Override
 	public void fuegeInDateiHinzu(Object object) throws IOException {
-		Freizeitbad fr = (Freizeitbad)object;
-		aus.write(fr.gibFreizeitbadZurueck(';')+"\n");
+		//Freizeitbad fr = (Freizeitbad)object;
+		for (Freizeitbad fzb : (ArrayList<Freizeitbad>) object) {
+			aus.write(fzb.gibFreizeitbadZurueck(';')+"\n");
+		}
+		//aus.write(fzb.gibFreizeitbadZurueck(';')+"\n");
 		
 	}
 

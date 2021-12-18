@@ -162,8 +162,12 @@ public class FreizeitBaederView {
 	}
 
 	void zeigeFreizeitbaederAn() {
-		if (this.freizeitbad != null) {
-			txtAnzeige.setText(this.freizeitbad.gibFreizeitbadZurueck(' '));
+		if (freizeitBaederModel.getFreizeitbad().size() > 0) {
+			StringBuffer text = new StringBuffer();
+			for (Freizeitbad fzb : freizeitBaederModel.getFreizeitbad()) {
+				text.append(fzb.gibFreizeitbadZurueck(' ')+ "\n");
+			}
+			txtAnzeige.setText(text.toString());
 		} else {
 			zeigeInformationsfensterAn("Bisher wurde kein Freizeitbad aufgenommen!");
 		}
