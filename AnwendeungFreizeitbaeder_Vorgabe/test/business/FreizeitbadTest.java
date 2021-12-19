@@ -21,6 +21,6 @@ class FreizeitbadTest {
 
 	@Test
 	public void test() {
-		assertTrue(()-> fzb.getBeckenlaenge() == 25, "Baackenlaenge nicht auf 25 gesezzt");
+		assertTrue(()-> fzb.getBeckenlaenge() == 25, "Bäckenlänge nicht auf 25 gesetzt");
 	}
 }
