@@ -2,8 +2,6 @@ package gui.guiFreizeitbaeder;
 
 import business.FreizeitBaederModel;
 import business.Freizeitbad;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -121,31 +119,10 @@ public class FreizeitBaederView {
 	}
 
 	private void initListener() {
-		btnEingabe.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				nehmeFreizeitbadAuf();
-			}
-		});
-		btnAnzeige.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				zeigeFreizeitbaederAn();
-			}
-		});
-		mnItmCsvExport.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				schreibeFreizeitbaederInDatei("csv");
-			}
-		});
-		mnItmTxtExport.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent e) {
-				schreibeFreizeitbaederInDatei("txt");
-			}
-		});
-		
+		btnAnzeige.setOnAction(e -> nehmeFreizeitbadAuf());
+		btnAnzeige.setOnAction(e -> zeigeFreizeitbaederAn());
+		mnItmCsvExport.setOnAction(e -> schreibeFreizeitbaederInDatei("csv"));
+		mnItmTxtExport.setOnAction(e -> schreibeFreizeitbaederInDatei("txt"));
 		
 	}
 
