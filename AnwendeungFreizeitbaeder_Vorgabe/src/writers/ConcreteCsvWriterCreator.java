@@ -3,7 +3,7 @@ package writers;
 public class ConcreteCsvWriterCreator extends WriterCreator {
 
 	@Override
-	public ConcreteCsvWriterProduct factoryMethod() {
+	public WriterProduct factoryMethod() {
 		return new ConcreteCsvWriterProduct();
 	}
 

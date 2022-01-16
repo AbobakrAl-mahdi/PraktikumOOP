@@ -3,7 +3,7 @@ package writers;
 public class ConcreteTxtWriterCreator extends WriterCreator {
 
 	@Override
-	public ConcreteTxtWriterProduct factoryMethod() {
+	public WriterProduct factoryMethod() {
 		return new ConcreteTxtWriterProduct();
 	}
 

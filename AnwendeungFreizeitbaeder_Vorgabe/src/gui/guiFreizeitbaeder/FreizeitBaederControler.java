@@ -1,18 +1,17 @@
 package gui.guiFreizeitbaeder;
 
-import java.io.IOException;
-import business.FreizeitBaederModel;
+import business.FreizeitbaederModel;
 import javafx.stage.Stage;
 import observer.Observer;
 
 // Concrete Observer
 public class FreizeitBaederControler implements Observer {
 
-	private FreizeitBaederModel freizeitBaederModel;
+	private FreizeitbaederModel freizeitBaederModel;
 	private FreizeitBaederView freizeitBaederView;
 
 	public FreizeitBaederControler(Stage primaryStage) {
-		this.freizeitBaederModel = freizeitBaederModel.getInstance();
+		this.freizeitBaederModel = freizeitBaederModel.getModel();
 		this.freizeitBaederView = new FreizeitBaederView(this, freizeitBaederModel, primaryStage);
 		this.freizeitBaederModel.addObserver(this);
 	}
@@ -20,16 +19,15 @@ public class FreizeitBaederControler implements Observer {
 	public void schreibeFreizeitbaederInDatei(String typ) {
 		try {
 			if ("csv".equals(typ)) {
-				freizeitBaederModel.SchreibeFreizeitBaederInCsvDatei();
+				freizeitBaederModel.schreibeFreizeitbaederInCsvDatei();
 				freizeitBaederView.zeigeInformationsfensterAn("Wurde in csv Datei gespeichert");
 
 			} else {
-				freizeitBaederModel.SchreibeFreizeitBaederInTxtDatei();
+				freizeitBaederModel.schreibeFreizeitbaederInTxtDatei();
 				freizeitBaederView.zeigeInformationsfensterAn("Wurde in Txt Datei gespeichert");
 
 			}
-		} catch (IOException exc) {
-			freizeitBaederView.zeigeInformationsfensterAn("IOException beim Speichern");
+		
 		} catch (Exception exc) {
 			freizeitBaederView.zeigeInformationsfensterAn("Unbekannter Fehler beim Speichern");
 		}

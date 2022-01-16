@@ -1,6 +1,6 @@
 package gui.guiFreizeitbaeder;
 
-import business.FreizeitBaederModel;
+import business.FreizeitbaederModel;
 import business.Freizeitbad;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -44,10 +44,10 @@ public class FreizeitBaederView {
 
 	// speichert temporaer ein Objekt vom Typ Freizeitbad
 	private Freizeitbad freizeitbad;
-	FreizeitBaederModel freizeitBaederModel;
+	FreizeitbaederModel freizeitBaederModel;
 	FreizeitBaederControler freizeitBaederControler;
 
-	public FreizeitBaederView(FreizeitBaederControler freizeitBaederControler, FreizeitBaederModel freizeitBaederModel,
+	public FreizeitBaederView(FreizeitBaederControler freizeitBaederControler, FreizeitbaederModel freizeitBaederModel,
 			Stage primaryStage) {
 		Scene scene = new Scene(this.pane, 560, 340);
 		primaryStage.setScene(scene);
@@ -130,7 +130,7 @@ public class FreizeitBaederView {
 		try {
 			this.freizeitbad = new Freizeitbad(txtName.getText(), txtGeoeffnetVon.getText(), txtGeoeffnetBis.getText(),
 					txtBeckenlaenge.getText(), txtWassTemperatur.getText());
-			freizeitBaederModel.setFreizeitbad(freizeitbad);
+			freizeitBaederModel.addFreizeitbad(freizeitbad);
 			//zeigeInformationsfensterAn("Das Freizeitbad wurde aufgenommen!");
 			freizeitBaederModel.notifyObserver();
 		} catch (PlausiException exc) {
@@ -139,9 +139,9 @@ public class FreizeitBaederView {
 	}
 
 	void zeigeFreizeitbaederAn() {
-		if (freizeitBaederModel.getFreizeitbad().size() > 0) {
+		if (freizeitBaederModel.getFreizeitbaeder().size() > 0) {
 			StringBuffer text = new StringBuffer();
-			for (Freizeitbad fzb : freizeitBaederModel.getFreizeitbad()) {
+			for (Freizeitbad fzb : freizeitBaederModel.getFreizeitbaeder()) {
 				text.append(fzb.gibFreizeitbadZurueck(' ')+ "\n");
 			}
 			txtAnzeige.setText(text.toString());
