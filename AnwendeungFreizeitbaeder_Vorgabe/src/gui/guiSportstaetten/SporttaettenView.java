@@ -71,25 +71,7 @@ public class SporttaettenView {
         	// Button
           	btnAnzeigeFreizeitbaeder.setLayoutX(310);
         	btnAnzeigeFreizeitbaeder.setLayoutY(290);
-        	pane.getChildren().add(btnAnzeigeFreizeitbaeder); 
-        	
-        // Sporthallen
-       	lblAnzeigeSporthallen.setLayoutX(20);
-       		lblAnzeigeSporthallen.setLayoutY(40);
-       		lblAnzeigeSporthallen.setFont(font);
-       		lblAnzeigeSporthallen.setStyle("-fx-font-weight: bold;"); 
-       	pane.getChildren().add(lblAnzeigeSporthallen);    
-        	// Textbereich	
-        	txtAnzeigeSporthallen.setEditable(false);
-        	txtAnzeigeSporthallen.setLayoutX(20);
-        	txtAnzeigeSporthallen.setLayoutY(90);
-        	txtAnzeigeSporthallen.setPrefWidth(220);
-     		txtAnzeigeSporthallen.setPrefHeight(185);
-       	pane.getChildren().add(txtAnzeigeSporthallen);        	
-        	// Button
-          	btnAnzeigeSporthallen.setLayoutX(20);
-          	btnAnzeigeSporthallen.setLayoutY(290);
-        	pane.getChildren().add(btnAnzeigeSporthallen); 
+        	pane.getChildren().add(btnAnzeigeFreizeitbaeder);
    }
    
     	private void initKomponentenSporthallen(){
