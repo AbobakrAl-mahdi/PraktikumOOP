@@ -1,5 +1,7 @@
 package gui.guiSportstaetten;
 
+import java.io.IOException;
+import ownUtil.PlausiException;
 import business.FreizeitbaederModel;
 import business.SporthallenModel;
 import javafx.stage.Stage;
@@ -23,4 +25,12 @@ public class SportstaettenControl implements Observer {
 		// TODO Auto-generated method stub
 		this.sportstaettenView.zeigeFreizeitbaederAn();
 	}	
+	
+	public void leseDateiausCsv() {
+		try {
+			sporthallenModel.leseSporthallenAusCsvDatei();
+		} catch (IOException | PlausiException e) {
+			sportstaettenView.zeigeInformationsfensterAn("Fehler beim lesen aus der CSV Datei");
+		}
+	}
 }

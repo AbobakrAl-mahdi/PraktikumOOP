@@ -1,6 +1,5 @@
 package gui.guiSportstaetten;
-   
-import java.io.IOException;
+
 import business.Freizeitbad;
 import business.FreizeitbaederModel;
 import business.SporthallenModel;
@@ -48,10 +47,11 @@ public class SporttaettenView {
     		this.sportControl = sportControl;
 
 
-		this.initKomponenten();
+		this.initKomponentenFreizeitbaeder();
+		this.initKomponentenSporthallen();
 		this.initListener();
     	}
-    	private void initKomponenten(){
+    	private void initKomponentenFreizeitbaeder(){
     		// Label
  		Font font = new Font("Arial", 20);
  		// Freizeitbaeder
@@ -92,6 +92,27 @@ public class SporttaettenView {
         	pane.getChildren().add(btnAnzeigeSporthallen); 
    }
    
+    	private void initKomponentenSporthallen(){
+         	Font font = new Font("Arial", 20);
+        	// Sporthallen
+           	lblAnzeigeSporthallen.setLayoutX(20);
+           		lblAnzeigeSporthallen.setLayoutY(40);
+           		lblAnzeigeSporthallen.setFont(font);
+           		lblAnzeigeSporthallen.setStyle("-fx-font-weight: bold;"); 
+           	pane.getChildren().add(lblAnzeigeSporthallen);    
+            	// Textbereich	
+            	txtAnzeigeSporthallen.setEditable(false);
+            	txtAnzeigeSporthallen.setLayoutX(20);
+            	txtAnzeigeSporthallen.setLayoutY(90);
+            	txtAnzeigeSporthallen.setPrefWidth(220);
+         		txtAnzeigeSporthallen.setPrefHeight(185);
+           	pane.getChildren().add(txtAnzeigeSporthallen);        	
+            	// Button
+              	btnAnzeigeSporthallen.setLayoutX(20);
+              	btnAnzeigeSporthallen.setLayoutY(290);
+            	pane.getChildren().add(btnAnzeigeSporthallen); 
+       }
+ 
    private void initListener() {
 	    btnAnzeigeFreizeitbaeder.setOnAction(
  			new EventHandler<ActionEvent>() {
@@ -105,15 +126,6 @@ public class SporttaettenView {
  			new EventHandler<ActionEvent>() {
 	    		@Override
 	        	public void handle(ActionEvent e) {
-	    			try {
-						sporthallenModel.leseSporthallenAusCsvDatei();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						zeigeInformationsfensterAn("IO Exception");
-					} catch (PlausiException e1) {
-						// TODO Auto-generated catch block
-						zeigeInformationsfensterAn("PlusiException Exception");
-					}
 	            	zeigeSporthallenAn();
 	    		} 
    	    });
@@ -135,6 +147,7 @@ public class SporttaettenView {
    
    // Sporthallen 
 	public void zeigeSporthallenAn() {
+		this.sportControl.leseDateiausCsv();
 		if (sporthallenModel.getSporthallen().size() > 0) {
 			StringBuffer text = new StringBuffer();
 			// Ergaenzen: for each – Schleife ueber ArrayList
@@ -147,7 +160,7 @@ public class SporttaettenView {
 		}
 	}	
    	
-    private void zeigeInformationsfensterAn(String meldung){
+    public void zeigeInformationsfensterAn(String meldung){
 	  	new MeldungsfensterAnzeiger(AlertType.INFORMATION,
            	"Information", meldung).zeigeMeldungsfensterAn();
     }	
